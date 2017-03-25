@@ -1,0 +1,20 @@
+<RuleImport>
+    <RuleAssignment>
+        <Target>SE_VISIT1.F_GATE_VISIT_1_109.IG_GATE__DATARELEASECONSENT_G_3423.I_GATE__ICFDATE</Target>
+        <RuleRef OID="R1_BV_ICF">
+            <DiscrepancyNoteAction IfExpressionEvaluates="true">
+                <Run AdministrativeDataEntry="true"
+                    InitialDataEntry="true" DoubleDataEntry="true"
+                    ImportDataEntry="true" Batch="true"/>
+                <Message>Date of informed consent is less than Baseline
+                    visit date. Please check both dates and either make
+                    a correction or create a discrepancy.</Message>
+            </DiscrepancyNoteAction>
+        </RuleRef>
+    </RuleAssignment>
+    <RuleDef OID="R1_BV_ICF" Name="Date of the Baseline visit should be signed before the Date of Informed Consent Form">
+        <Description>If date of informed consent is less than Baseline
+            visit date a discrepancy note must be logged.</Description>
+        <Expression>I_GATE__ICFDATE lt SE_VISIT1.F_GATE_VISIT_1_109.IG_GATE__VISITDATE_G_594.I_GATE__VISITDATE_9196</Expression>
+    </RuleDef>
+</RuleImport>
